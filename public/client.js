@@ -1,16 +1,16 @@
 $(function(){
 
-  $.get('/parts', appendToList ); 
+  $.get('/users', appendToList ); 
 
-  function appendToList(parts) {
+  function appendToList(users) {
     var list = [];
-    for(var i in parts){
-      var part = parts[i];
-      var content = '<a href="/parts/'+part+'">'+part+'</a>';
-      content = content + ' :: <a href="#" data-block="'+part+'">Delete</a>';
+    for(var i in users){
+      var user = users[i];
+      var content = '<a href="/users/'+user+'">'+user+'</a>';
+      content = content + ' :: <a href="#" data-block="'+user+'">Delete</a>';
       list.push($('<li>', { html: content }));
     }
-    $('.parts-list').append(list);
+    $('.users-list').append(list);
   }
   
   $('form').on('submit', function(event){
@@ -19,21 +19,21 @@ $(function(){
     var blockData = form.serialize();
    
     $.ajax({
-      type: 'POST', url: '/parts', data: blockData
-      }).done(function(blockName){
-        appendToList([blockName]);
+      type: 'POST', url: '/users', data: blockData
+      }).done(function(userName){
+        appendToList([userName]);
         form.trigger('reset');
     });
   });
   
-  $('.parts-list').on('click', 'a[data-block]', function(event){
+  $('.users-list').on('click', 'a[data-block]', function(event){
     if(!confirm('Are you sure?')){
       return false;
     }
     
     var target = $(event.currentTarget);
     $.ajax({
-      type: 'DELETE', url: '/parts/' + target.data('name')
+      type: 'DELETE', url: '/users/' + target.data('name')
     }).done(function(){
       target.parents('li').remove();
     });
