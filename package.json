@@ -1,0 +1,27 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.3",
+    "mongodb": "^1.4.37",
+    "mongoose": "^4.0.3",
+    "mongoskin": "^1.4.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tyler6699/express.git"
+  },
+  "author": "Ryan Tyler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyler6699/express/issues"
+  },
+  "homepage": "https://github.com/tyler6699/express"
+}
